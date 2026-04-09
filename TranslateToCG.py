@@ -14,7 +14,7 @@ Created on Tue Feb 10 03:32:49 2026
 import networkx as nx
 
 # variables
-input_file='secretasa_aa.mol2'
+input_file='inputfile' #( .mol2, .itp or .top)
 
 # parsing of input file (either .itp or .top)
 def parse_atoms(line):
