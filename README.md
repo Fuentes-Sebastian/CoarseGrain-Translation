@@ -1,9 +1,10 @@
 # CG_graph
 A script to convert atoms in a .mol2, .itp or .top protein file into Coarse Grained (CG) beads using graph theory. 
 
-The input must have all hydrogens (particularly to correctly identify the serine residue) and bonds of the protein atoms. 
-For the moment it does not accept modified residues
+The input file must have all the hydrogens (particularly to correctly identify the serine residue) and bonds of the protein atoms. 
 
-The script takes an input file (.mol2, .itp or .top), uses a reference dictionary of the residues and a CG dictionary of the CG beads for each residue. 
+The script reads a reference dictionary with the graphs of the residues (res_dictionary.txt) and compares each residue of the input file with the reference graphs, to assign each atom to its corresponding reference graph node. Then, the script correlates this information with the CG dictionary to assign the original atom ids to beads in the CG model
 
-The output is a warning file with all the warnings found and a dictionary list for each coarse grained bead.
+Modified residues can be added to both the res_dictionary and the CG_dictionary.
+
+The script outputs a warning file with all the warnings found and a dictionary list with information for each coarse grained bead identified.
