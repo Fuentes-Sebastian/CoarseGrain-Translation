@@ -14,10 +14,11 @@ Created on Tue Feb 10 03:32:49 2026
 
 import networkx as nx
 import pprint
-import ast # to convert .txt to a list of dictionaries 
+import ast # to read .txt as a list of dictionaries 
 
 # variables
 input_file='input_file' #( .mol2, .itp or .top)
+
 
 # ________________________ Definitions ________________________ 
 
@@ -46,9 +47,15 @@ weight_dict={'H':1, 'C':12, 'N':14, 'O':16, 'S':32} # needed because mol2 files 
 
 def parse_atoms_mol2(line):
     atom=line.split()
-    element=atom[1][0]
+    element=atom[1][0] # uses first letter of the atom name
 
+    # sometimes atom name starts with a number, 
+    # in that case, it will use first letter of the atom type
     if element not in weight_dict.keys():
+        element=atom[5][0]
+    
+    # if element is not in either column:
+    if element not in weight_dict.keys():        
         warn=f'atom with id {int(atom[0])} has element {element} which is not in dictionay of weights, wheight = 0 applied'
         print(warn)
         warnings.append(warn)
