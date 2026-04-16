@@ -307,7 +307,7 @@ for m in matches_in_total:
                         if n == v:
                             atom_id_list.append(k)
                 final_dict.append({'CG_id':id_CG,'atom_ids':atom_id_list,
-                                   'CG_name':name,'res_name':d_CG['res_name'], 'res_id':m['res_id']})
+                                   'CG_type':name,'res_name':d_CG['res_name'], 'res_id':m['res_id']})
                 id_CG+=1
 
 
